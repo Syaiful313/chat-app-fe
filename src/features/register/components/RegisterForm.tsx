@@ -30,7 +30,10 @@ export function RegisterForm({
     },
     validationSchema: registerSchema,
     onSubmit: async (values) => {
-      await register(values);
+      await register({
+        ...values,
+        name: `${values.firstName} ${values.lastName}`,
+      });
     },
   });
 
